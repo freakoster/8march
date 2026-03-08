@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>С 8 Марта 💐</title>
+<style>
+  body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#ffd1dc,#ffe8f0);
+    font-family:sans-serif;
+    text-align:center;
+    overflow:hidden;
+  }
+
+  .gift{
+    font-size:100px;
+    cursor:pointer;
+    transition: transform 0.3s;
+  }
+
+  .gift:hover{
+    transform:scale(1.2);
+  }
+
+  .bouquet{
+    font-size:120px;
+    transform:scale(0);
+    transition: transform 0.5s;
+    margin-bottom:20px;
+  }
+
+  h1, p{
+    opacity:0;
+    transition: opacity 0.5s;
+    margin:0;
+  }
+
+  .visible{
+    transform:scale(1) !important;
+    opacity:1 !important;
+  }
+
+  .flower{
+    position:absolute;
+    font-size:24px;
+    animation:fall linear infinite;
+  }
+
+  @keyframes fall{
+    0%{transform:translateY(-10vh);}
+    100%{transform:translateY(110vh);}
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="gift" onclick="openGift()">🎁 Нажми, чтобы открыть подарок</div>
+
+<div class="bouquet">💐</div>
+<h1>С 8 Марта!</h1>
+<p>Пусть эта весна принесёт радость, улыбки и цветы 🌷</p>
+
+<script>
+// функция открытия подарка
+function openGift(){
+  document.querySelector('.gift').style.display='none';
+  document.querySelector('.bouquet').classList.add('visible');
+  document.querySelector('h1').classList.add('visible');
+  document.querySelector('p').classList.add('visible');
+  spawnFlowers();
+}
+
+// падающие лепестки
+function spawnFlowers(){
+  for(let i=0;i<20;i++){
+    let f=document.createElement('div');
+    f.className='flower';
+    f.innerHTML='🌸';
+    f.style.left=Math.random()*100+'vw';
+    f.style.animationDuration=3+Math.random()*5+'s';
+    document.body.appendChild(f);
+  }
+}
+</script>
+
+</body>
+</html>
