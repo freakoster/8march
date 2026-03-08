@@ -2,6 +2,9 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 <title>С 8 Марта 💐</title>
 <style>
   body{
@@ -18,7 +21,7 @@
   }
 
   .gift{
-    font-size:100px;
+    font-size:15vw; /* адаптивный размер */
     cursor:pointer;
     transition: transform 0.3s;
   }
@@ -28,17 +31,21 @@
   }
 
   .bouquet{
-    font-size:120px;
+    font-size:20vw; 
     transform:scale(0);
     transition: transform 0.5s;
     margin-bottom:20px;
   }
 
   h1, p{
+    font-family: 'Lobster', cursive; 
     opacity:0;
     transition: opacity 0.5s;
     margin:0;
   }
+
+  h1 { font-size:6vw; }
+  p  { font-size:4.5vw; }
 
   .visible{
     transform:scale(1) !important;
@@ -47,7 +54,7 @@
 
   .flower{
     position:absolute;
-    font-size:24px;
+    font-size:4vw; 
     animation:fall linear infinite;
   }
 
@@ -56,6 +63,14 @@
     100%{transform:translateY(110vh);}
   }
 
+  /* Mobile media request */
+  @media (max-width: 600px){
+    .gift { font-size:25vw; }
+    .bouquet { font-size:30vw; }
+    h1 { font-size:8vw; }
+    p  { font-size:6vw; }
+    .flower { font-size:8vw; }
+  }
 </style>
 </head>
 
@@ -68,7 +83,7 @@
 <p>Пусть эта весна принесёт радость, улыбки и цветы 🌷</p>
 
 <script>
-// функция открытия подарка
+// function open-gift
 function openGift(){
   document.querySelector('.gift').style.display='none';
   document.querySelector('.bouquet').classList.add('visible');
@@ -89,6 +104,5 @@ function spawnFlowers(){
   }
 }
 </script>
-
 </body>
 </html>
